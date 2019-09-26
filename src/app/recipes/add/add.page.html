@@ -23,22 +23,32 @@
         <ion-label position="stacked">Ingredients*</ion-label>
         <ion-item>
           <ion-input [(ngModel)]="recipe_ingredients"></ion-input>
-          <ion-button item-right shape="round" color="success">
+          <ion-button item-right shape="round" color="success" (click)="addIngredient()">
             <ion-icon name="add"></ion-icon>
           </ion-button>
         </ion-item>
+        <ion-list>
+          <ion-item *ngFor="let ingredient of ingredients">
+            <ion-label>{{ingredient}}</ion-label>
+          </ion-item>
+        </ion-list>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">Instructions*</ion-label>
         <ion-item>
           <ion-input [(ngModel)]="recipe_instructions"></ion-input>
-          <ion-button item-right shape="round" color="success">
+          <ion-button item-right shape="round" color="success" (click)="addInstruction()">
             <ion-icon name="add"></ion-icon>
           </ion-button>
         </ion-item>
+        <ion-list>
+          <ion-item *ngFor="let instruction of instructions">
+            <ion-label>{{instruction}}</ion-label>
+          </ion-item>
+        </ion-list>
       </ion-item>
       <br>
-      <ion-button color="warning" expand="block" (click)="addGrocery()">Save Recipe</ion-button>
+      <ion-button color="warning" expand="block" (click)="addRecipe()">Save Recipe</ion-button>
       <ion-button color="danger" expand="block" fill="outline" (click)="cancel()">Cancel</ion-button>
     </ion-card-content>
   </ion-card>
