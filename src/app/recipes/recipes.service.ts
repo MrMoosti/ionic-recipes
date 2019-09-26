@@ -14,14 +14,16 @@ export class RecipesService {
     const Spaghetti = new Recipe();
     Spaghetti.id = 1;
     Spaghetti.name = 'Spaghetti';
-    Spaghetti.ImageUrl = 'https://static.ah.nl/static/recepten/img_085892_445x297_JPG.jpg';
+    Spaghetti.imageUrl = 'https://static.ah.nl/static/recepten/img_085892_445x297_JPG.jpg';
     Spaghetti.ingredients = ['spaghetti', 'water', 'that good sauce'];
+    Spaghetti.instructions = ['Put water in pot', 'Make water hot', 'put spaghet in', 'take spaghet out', 'put spaghet on bowl', 'take good sauce and put on spaghoot'];
 
     const Vodka = new Recipe();
     Vodka.id = 2;
     Vodka.name = 'Vodka';
-    Vodka.ImageUrl = 'https://images-na.ssl-images-amazon.com/images/I/41PLfPBoj2L.jpg';
+    Vodka.imageUrl = 'https://images-na.ssl-images-amazon.com/images/I/41PLfPBoj2L.jpg';
     Vodka.ingredients = ['Potatoes', 'more Potatoes'];
+    Vodka.instructions = ['Get up', 'Go to store', 'Don\'t buy potatoe', 'Buy Absolut Vodka', 'Get Drunk'];
 
     this.recipes.push(Spaghetti);
     this.recipes.push(Vodka);

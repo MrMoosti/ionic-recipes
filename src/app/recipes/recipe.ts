@@ -1,6 +1,7 @@
 export class Recipe {
     id: number;
     name: string;
-    ImageUrl: string;
+    imageUrl: string;
     ingredients: string[];
+    instructions: string[];
 }
