@@ -11,10 +11,19 @@
   <img [src]="recipe.imageUrl" style="width: 100%;" />
   <ion-card-header class="ion-text-center">
     <ion-card-title>{{recipe.name}}</ion-card-title>
+    <ion-card-subtitle>Ingredients</ion-card-subtitle>
   </ion-card-header>
-  <ion-list lines="none" *ngFor="let ingredient of recipe.ingredients">
+  <ion-list *ngFor="let ingredient of recipe.ingredients">
     <ion-item>
       <ion-label>{{ingredient}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-card-header class="ion-text-center">
+    <ion-card-subtitle>Instructions</ion-card-subtitle>
+  </ion-card-header>
+  <ion-list *ngFor="let instruction of recipe.instructions">
+    <ion-item>
+      <ion-label>{{instruction}}</ion-label>
     </ion-item>
   </ion-list>
 

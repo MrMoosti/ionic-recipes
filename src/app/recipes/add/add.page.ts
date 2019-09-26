@@ -113,6 +113,7 @@ export class AddPage implements OnInit {
         } else {
             let recipe = new Recipe();
             recipe.id = this.rs.getLastRecipeId() + 1;
+            recipe.name = this.recipeName;
             recipe.imageUrl = this.recipeUrl;
             recipe.ingredients = this.recipeIngredients;
             recipe.instructions = this.recipeInstructions;
