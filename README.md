@@ -16,9 +16,8 @@ Ionic Recipes is a simple Ionic project made by a student. It is open source and
   
 
 ### Screenshots
-| | | |
+| ![Detail Recipe](https://imgur.com/Y2oYIXx.png)|![Add Recipe](https://i.imgur.com/cHbMH68.png) | ![Recipes](https://imgur.com/0szdoxX.png)|
 | ------- | ----| ------- |
-|![Detail Recipe](https://imgur.com/Y2oYIXx.png) | ![Add Recipe](https://i.imgur.com/cHbMH68.png) | ![Recipes](https://imgur.com/0szdoxX.png) |
 
 ## Getting Started
 
