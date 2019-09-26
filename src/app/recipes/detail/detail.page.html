@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{recipe.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img [src]="recipe.ImageUrl" style="width: 100%;" />
+    <ion-card-header class="ion-text-center"> 
+      <ion-card-title>{{recipe.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-list lines="none" *ngFor="let ingredient of recipe.ingredients"> 
+      <ion-item>
+        <ion-label>{{ingredient}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+
+    <!-- Add new recipe button -->
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="rs.removeRecipeById(recipe.id)">
+      <ion-fab-button color="danger">
+          <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <!-- Add new recipe button -->
+</ion-content>
