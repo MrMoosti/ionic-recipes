@@ -11,31 +11,42 @@ export class RecipesService {
 	recipes: Recipe[] = [];
 
 	constructor(private router: Router, private alertController: AlertController) {
-		const Spaghetti = new Recipe();
-		Spaghetti.id = 1;
-		Spaghetti.name = 'Spaghetti';
-		Spaghetti.imageUrl = 'https://static.ah.nl/static/recepten/img_085892_445x297_JPG.jpg';
-		Spaghetti.ingredients = ['spaghetti', 'water', 'that good sauce'];
-		Spaghetti.instructions = ['Put water in pot', 'Make water hot', 'put spaghet in', 'take spaghet out', 'put spaghet on bowl', 'take good sauce and put on spaghoot'];
+		if (localStorage.getItem('recipes')) {
+			this.recipes = JSON.parse(localStorage.getItem('recipes'));
+		} else {
+			localStorage.setItem('recipes', JSON.stringify(this.recipes));
+		}
+		// const Spaghetti = new Recipe();
+		// Spaghetti.id = 1;
+		// Spaghetti.name = 'Spaghetti';
+		// Spaghetti.imageUrl = 'https://static.ah.nl/static/recepten/img_085892_445x297_JPG.jpg';
+		// Spaghetti.ingredients = ['spaghetti', 'water', 'that good sauce'];
+		// Spaghetti.instructions = ['Put water in pot', 'Make water hot', 'put spaghet in', 'take spaghet out', 'put spaghet on bowl', 'take good sauce and put on spaghoot'];
 
-		const Vodka = new Recipe();
-		Vodka.id = 2;
-		Vodka.name = 'Vodka';
-		Vodka.imageUrl = 'https://images-na.ssl-images-amazon.com/images/I/41PLfPBoj2L.jpg';
-		Vodka.ingredients = ['Potatoes', 'more Potatoes'];
-		Vodka.instructions = ['Get up', 'Go to store', 'Don\'t buy potatoe', 'Buy Absolut Vodka', 'Get Drunk'];
+		// const Vodka = new Recipe();
+		// Vodka.id = 2;
+		// Vodka.name = 'Vodka';
+		// Vodka.imageUrl = 'https://images-na.ssl-images-amazon.com/images/I/41PLfPBoj2L.jpg';
+		// Vodka.ingredients = ['Potatoes', 'more Potatoes'];
+		// Vodka.instructions = ['Get up', 'Go to store', 'Don\'t buy potatoe', 'Buy Absolut Vodka', 'Get Drunk'];
 
-		this.recipes.push(Spaghetti);
-		this.recipes.push(Vodka);
+		// this.recipes.push(Spaghetti);
+		// this.recipes.push(Vodka);
 	}
 
 	addNewRecipe(recipe: Recipe) {
 		this.recipes.push(recipe);
+		this.updateStorage();
 	}
 
 	updateRecipe(recipe: Recipe) {
 		let index = this.recipes.indexOf(this.recipes.find(x => x.id === recipe.id));
 		this.recipes[index] = recipe;
+		this.updateStorage();
+	}
+
+	updateStorage() {
+		localStorage.setItem('recipes', JSON.stringify(this.recipes));
 	}
 
 	getAllRecipes(): Recipe[] {
@@ -47,7 +58,11 @@ export class RecipesService {
 	}
 
 	getLastRecipeId(): number {
-		return this.recipes[this.recipes.length - 1].id;
+		if (this.recipes.length > 0) {
+			return this.recipes[this.recipes.length - 1].id;
+		} else {
+			return 0;
+		}
 	}
 
 	async removeRecipeById(id: number) {
@@ -67,6 +82,7 @@ export class RecipesService {
 					handler: () => {
 						const index = this.recipes.indexOf(this.recipes.find(x => x.id === id));
 						this.recipes.splice(index, 1);
+						this.updateStorage();
 						this.router.navigateByUrl('/recipes');
 					}
 				}
