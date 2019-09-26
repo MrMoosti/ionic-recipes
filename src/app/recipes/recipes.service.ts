@@ -29,12 +29,20 @@ export class RecipesService {
     this.recipes.push(Vodka);
   }
 
+  addNewRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
   getAllRecipes(): Recipe[] {
     return this.recipes;
   }
 
   getRecipeById(id: number): Recipe {
     return this.recipes.find(x => x.id === id);
+  }
+
+  getLastRecipeId(): number {
+    return this.recipes[this.recipes.length - 1].id;
   }
 
   async removeRecipeById(id: number) {

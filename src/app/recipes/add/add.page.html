@@ -12,23 +12,23 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="stacked">Recipe's Name*</ion-label>
-        <ion-input [(ngModel)]="boodschap_input" id="boodschap_input" type="text" placeholder="Chicken Salad">
+        <ion-input [(ngModel)]="recipeName" id="recipe_name" type="text" placeholder="Chicken Salad">
         </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Recipe Picture URL</ion-label>
-        <ion-input [(ngModel)]="recipe_url" type="text"></ion-input>
+        <ion-label position="stacked">Recipe Picture URL*</ion-label>
+        <ion-input [(ngModel)]="recipeUrl" type="text"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label position="stacked">Ingredients*</ion-label>
         <ion-item>
-          <ion-input [(ngModel)]="recipe_ingredients"></ion-input>
+          <ion-input [(ngModel)]="ingredientInput"></ion-input>
           <ion-button item-right shape="round" color="success" (click)="addIngredient()">
             <ion-icon name="add"></ion-icon>
           </ion-button>
         </ion-item>
-        <ion-list>
-          <ion-item *ngFor="let ingredient of ingredients">
+        <ion-list *ngFor="let ingredient of recipeIngredients; let i = index">
+          <ion-item lines="none" (click)="removeIngredient(i)" [attr.data-id]="i">
             <ion-label>{{ingredient}}</ion-label>
           </ion-item>
         </ion-list>
@@ -36,13 +36,13 @@
       <ion-item lines="none">
         <ion-label position="stacked">Instructions*</ion-label>
         <ion-item>
-          <ion-input [(ngModel)]="recipe_instructions"></ion-input>
+          <ion-input [(ngModel)]="instructionInput"></ion-input>
           <ion-button item-right shape="round" color="success" (click)="addInstruction()">
             <ion-icon name="add"></ion-icon>
           </ion-button>
         </ion-item>
-        <ion-list>
-          <ion-item *ngFor="let instruction of instructions">
+        <ion-list *ngFor="let instruction of recipeInstructions; let i = index">
+          <ion-item lines="none" (click)="removeInstruction(i)" [attr.data-id]="i">
             <ion-label>{{instruction}}</ion-label>
           </ion-item>
         </ion-list>
