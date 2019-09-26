@@ -43,7 +43,7 @@ export class EditPage implements OnInit {
 
 	async removeIngredient(id: number) {
 		const alert = await this.alertController.create({
-			header: 'Confirm',
+			header: 'Delete',
 			message: 'Are you sure you want to delete this ingredient?',
 			buttons: [
 				{
@@ -81,7 +81,7 @@ export class EditPage implements OnInit {
 
 	async removeInstruction(id: number) {
 		const alert = await this.alertController.create({
-			header: 'Confirm',
+			header: 'Delete',
 			message: 'Are you sure you want to delete this instruction?',
 			buttons: [
 				{
@@ -130,7 +130,7 @@ export class EditPage implements OnInit {
 	// Cancel recipe
 	async cancel() {
 		const alert = await this.alertController.create({
-			header: 'Confirm',
+			header: 'Cancel',
 			message: 'Are you sure you want to cancel your recipe? Unsaved data will get lost.',
 			buttons: [
 				{

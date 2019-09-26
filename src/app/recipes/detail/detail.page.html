@@ -32,11 +32,11 @@
       <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="start">
-      <ion-fab-button color="danger" (click)="rs.removeRecipeById(recipe.id)">
-        <ion-icon name="trash"></ion-icon>
-      </ion-fab-button>
       <ion-fab-button color="warning" [routerLink]="['../../edit', recipe.id]">
         <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="rs.removeRecipeById(recipe.id)">
+        <ion-icon name="trash"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
