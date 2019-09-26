@@ -8,9 +8,16 @@ const routes: Routes = [
     path: 'recipes', children: [
       { path: '', loadChildren: './recipes/recipes.module#RecipesPageModule' },
       { path: 'add', loadChildren: './recipes/add/add.module#AddPageModule' },
+      {
+        path: 'edit', children: [
+          { path: ':recipe', loadChildren: './recipes/edit/edit.module#EditPageModule' }
+        ]
+      },
       { path: ':recipe', loadChildren: './recipes/detail/detail.module#DetailPageModule' }
     ]
   },
+
+
 ];
 
 @NgModule({

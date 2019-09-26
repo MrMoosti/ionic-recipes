@@ -27,12 +27,17 @@
     </ion-item>
   </ion-list>
 
-
-  <!-- Add new recipe button -->
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="rs.removeRecipeById(recipe.id)">
-    <ion-fab-button color="danger">
-      <ion-icon name="close"></ion-icon>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="settings"></ion-icon>
     </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="danger" (click)="rs.removeRecipeById(recipe.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="warning" [routerLink]="['../../edit', recipe.id]">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
-  <!-- Add new recipe button -->
 </ion-content>
